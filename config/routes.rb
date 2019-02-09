@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :airplanes
   get '/flights/:flight_id/seats/indexfirst',to: 'seats#indexfirst', as: 'firstseat'
   get '/flights/:flight_id/seats/indexeconomy',to: 'seats#indexeconomy', as: 'economyseat'
   get '/flights/:flight_id/seats/indexbusiness',to: 'seats#indexbusiness', as: 'businessseat'
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
   	resources :economies
   	resources :firstclasses
   end
+
+  get '/airplanes/:airplane_id/flights/new', to: 'airplanes#flightnew', as: 'airplane_flight'
+  post '/airplanes/:airplane_id/flights/new', to: 'airplanes#flightcreate'
   get '/bookings/:booking_id/upgrade', to: 'bookings#upgrade', as: 'booking_upgrade'
   post '/bookings/:booking_id/upgrade', to: 'bookings#upgradecreate'
   get '/users/:user_id/flights/finder', to: 'flights#finder', as: 'flights_finder'

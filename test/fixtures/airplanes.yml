@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  firstseat: 1
+  firstemer: 1
+  firstprice: 1
+  firstrow: 1
+  busseat: 1
+  busemer: 1
+  busprice: 1
+  busrow: 1
+  ecoseat: 1
+  ecoemer: 1
+  ecoprice: 1
+  ecorow: 1
+
+two:
+  name: MyString
+  type: 
+  firstseat: 1
+  firstemer: 1
+  firstprice: 1
+  firstrow: 1
+  busseat: 1
+  busemer: 1
+  busprice: 1
+  busrow: 1
+  ecoseat: 1
+  ecoemer: 1
+  ecoprice: 1
+  ecorow: 1

@@ -1,0 +1,45 @@
+<%= form_for(@flight, url: airplane_flight_path, method: "post") do |form| %>
+  <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+      <% @flight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :name, value: @airplane.name %>
+  <%= form.hidden_field :airplane_id, value: @airplane.id %>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destination %>
+    <%= form.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Date %>
+    <%= form.date_field(:dateofflight,:order => [:year, :month, :day]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :depart %>
+    <%= form.time_select :depart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arrive %>
+    <%= form.time_select :arrive %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -57,6 +57,8 @@
   <div class="myseat"></div>- Seats Selected<br>
   <div class ="seatunavailable"></div>- Seats Unavailable
   <br>
+  Emergency Exit next to seat- <%= @seats.where(:seattype => "window_emergency").first.seatnumber %>
+  <br>
    <% if (@booking.seatofbookings.size == @booking.seats) %>
   <% if (!Seat.where(:booking_id => @booking.id).exists?) %>
  <%= link_to 'Confirm' ,seatconfirm_path(:booking_id => @booking.id) ,method: "post" %> |

@@ -1,4 +1,5 @@
 class Flight < ApplicationRecord
+	belongs_to :airplane, optional: true
 	has_one :economy
 	has_one :firstclass
 	has_one :business

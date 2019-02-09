@@ -5,6 +5,7 @@
 		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |	
 		<% if (current_user.admin?) %>	
 		<%= link_to 'Flights', flights_path %> |
+		<%= link_to 'Airplanes', airplanes_path %> |
 		<% end %>
 		<%= link_to 'New Booking', flights_finder_path(current_user) %> |
 		<% if (current_user.admin?) %>

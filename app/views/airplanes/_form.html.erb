@@ -1,0 +1,93 @@
+<%= form_with(model: airplane, local: true) do |form| %>
+  <% if airplane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(airplane.errors.count, "error") %> prohibited this airplane from being saved:</h2>
+
+      <ul>
+      <% airplane.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :typeofplane %>
+  </div>
+
+  <h2> FIRST CLASS </h2>
+
+  <div class="field">
+    <%= form.label :"Seats in a Row" %>
+    <%= form.number_field :firstseat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Number of rows" %>
+    <%= form.number_field :firstrow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Emergency Row" %>
+    <%= form.number_field :firstemer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Base price" %>
+    <%= form.number_field :firstprice %>
+  </div>
+
+  <h2> BUSINESS CLASS </h2>
+
+  <div class="field">
+    <%= form.label :"Seats in a row" %>
+    <%= form.number_field :busseat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Number of rows" %>
+    <%= form.number_field :busrow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Emergency Row" %>
+    <%= form.number_field :busemer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Base Price" %>
+    <%= form.number_field :busprice %>
+  </div>
+
+  <h2> ECONOMY CLASS</h2>
+
+  <div class="field">
+    <%= form.label :"Seats in a row" %>
+    <%= form.number_field :ecoseat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Number of rows" %>
+    <%= form.number_field :ecorow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Emergency Row" %>
+    <%= form.number_field :ecoemer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Base price" %>
+    <%= form.number_field :ecoprice %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

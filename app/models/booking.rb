@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   before_create :generate
   before_destroy :restore_availability
-  before_create :check_availability
+  validate :check_availability
 
   belongs_to :user
   belongs_to :flight
@@ -17,7 +17,8 @@ class Booking < ApplicationRecord
   	def check_availability
   		if (self.seatclass === 'first')
         att = self.flight.firstclass.availability - self.seats
-  				if(att>=0 )
+        puts att
+  				if(self.flight.firstclass.availability >= self.seats)
             puts self.seats
   					
             puts att
@@ -27,14 +28,14 @@ class Booking < ApplicationRecord
   				end
   		elsif (self.seatclass === 'business')
         att = self.flight.business.availability - self.seats
-  				if(att>=0 )
+  				if(self.flight.firstclass.availability >= self.seats)
   					self.flight.business.update_column(:availability,att)
   				else
   					errors.add(:business_id,'unavailable number of seats')
   				end
   		elsif (self.seatclass === 'economy')
          att = self.flight.economy.availability - self.seats
-  				if(att>=0)
+  				if(self.flight.firstclass.availability >= self.seats)
   					self.flight.economy.update_column(:availability,att)
   				else
   					errors.add(:economy_id,'unavailable number of seats')
