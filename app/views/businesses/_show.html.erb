@@ -1,0 +1,31 @@
+<p>
+  <strong>Seats in a row:</strong>
+  <%= @flight.business.seat %>
+</p>
+
+<p>
+  <strong>Number of Rows:</strong>
+  <%= @flight.business.row %>
+</p>
+
+<p>
+  <strong>Base Price:</strong>
+  <%= @flight.business.price %>
+</p>
+
+<p>
+  <strong>Total Seats:</strong>
+  <%= @flight.business.total %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @flight.business.availability %>
+</p>
+
+<p>
+  <strong>Emergency Window in row:</strong>
+  <%= @flight.business.emergency %>
+</p>
+
+<%= link_to 'seats', businessseat_path(@flight) %>

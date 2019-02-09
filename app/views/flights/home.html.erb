@@ -1,0 +1,31 @@
+<h1>WELCOME TO THE FLIGHT APP</h1>
+
+	<% if current_user %>
+
+		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> |	
+		<% if (current_user.admin?) %>	
+		<%= link_to 'Flights', flights_path %> |
+		<% end %>
+		<%= link_to 'New Booking', flights_finder_path(current_user) %> |
+		<% if (current_user.admin?) %>
+		<%= link_to 'All Bookings', bookings_index_path(current_user) %>
+		<% else %>
+		<%= link_to 'My Bookings', bookings_index_path(current_user) %>
+		<% end %>
+		<%= form_tag(seatmap_path, method: "get") do %>
+		<h2> SELECT SEAT </h2>	
+		  <div class="field">
+		    <%= label_tag :'PNR Number' %>
+		    <%= text_field_tag :pnr %>
+		  </div>
+		  <div class="actions">
+		    <%= submit_tag("Submit") %>
+		  </div>
+		<% end %>
+
+	<% else %>
+
+		<%= link_to 'Sign Up', new_user_registration_path %> |
+		<%= link_to 'Sign In', new_user_session_path %>
+
+	<% end %>

@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>Seat:</strong>
+  <%= @economy.seat %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @economy.row %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @economy.price %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @economy.total %>
+</p>
+
+<p>
+  <strong>Emergency:</strong>
+  <%= @economy.emergency %>
+</p>
+
+<%= link_to 'Edit', edit_economy_path(@economy) %> |
+<%= link_to 'Back', economies_path %>

@@ -1,0 +1,35 @@
+
+
+<h1>Economies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seat</th>
+      <th>Row</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Emergency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @economies.each do |economy| %>
+      <tr>
+        <td><%= economy.seat %></td>
+        <td><%= economy.row %></td>
+        <td><%= economy.price %></td>
+        <td><%= economy.total %></td>
+        <td><%= economy.emergency %></td>
+        <td><%= link_to 'Show', economy %></td>
+        <td><%= link_to 'Edit', edit_economy_path(economy) %></td>
+        <td><%= link_to 'Destroy', economy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Economy', new_flight_economy_path %>

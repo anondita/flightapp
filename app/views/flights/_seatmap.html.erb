@@ -1,0 +1,66 @@
+<% stylesheet_link_tag "/custom.css" %>
+
+<% @x =0 %>
+<h2><%= @booking.flight.name %> - <%= @booking.seatclass %> class </h2>
+<div class='classmap'>
+  <p> Flight head </p>
+  <div>
+  <p class="left">W</p>
+  <p class="right">A</p>
+</div>
+<br>
+  <div>
+
+<% @seats.each do |seat| %>
+  <% if (seat.available == true) %>
+     <% if (!@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists?) %>
+     <% puts !@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists? %>
+      	<div class="seatavailable">
+          <% if (@booking.seatofbookings.size < @booking.seats) %>
+          <% if (!Seat.where(:booking_id => @booking.id).exists?) %>
+          <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber,:booking_id => @booking.id),method: "post",class: "seat" %>
+          <% else %>
+          <%= seat.seatnumber %>
+          <% end %>
+          <% end %>
+        </div>
+
+      <% elsif(@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists?) %>
+      <% puts !@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists? %>
+        <div class="myseat">
+            <% if (@booking.seatofbookings.size < @booking.seats) %>
+            <% if (!Seat.where(:booking_id => @booking.id).exists?) %>
+            <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber,:booking_id => @booking.id),method: "post", class: "seat" %>
+            <% else %>
+            <%= seat.seatnumber %>
+            <% end %>
+            <%end%>
+            
+        </div>
+      <%end %>
+
+  <% elsif seat.available == false %>
+    	<div class ="seatunavailable">
+        <%= seat.seatnumber %>
+    	</div>
+  <% end %>
+
+  <% @x+=1 %>
+  <% if (@x % @seater ==0) %>
+  	<br>
+  <% end %>
+  <% end %>
+</div>
+</div>
+<br>
+  <div class="seatavailable"></div> -Seat Available<br>
+  <div class="myseat"></div>- Seats Selected<br>
+  <div class ="seatunavailable"></div>- Seats Unavailable
+  <br>
+   <% if (@booking.seatofbookings.size == @booking.seats) %>
+  <% if (!Seat.where(:booking_id => @booking.id).exists?) %>
+ <%= link_to 'Confirm' ,seatconfirm_path(:booking_id => @booking.id) ,method: "post" %> |
+ <%= link_to 'reset' ,seatmap_path(:booking_id => @booking.id) %>
+ <% end %>
+ <% end %>
+  <%= link_to 'Back' , root_path %>

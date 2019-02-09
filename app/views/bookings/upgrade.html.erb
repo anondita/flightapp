@@ -1,0 +1,34 @@
+<%= form_for(@booking, url: booking_upgrade_path, method: "post") do |form| %>
+<% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= form.hidden_field :flight_id,value: @booking.flight.id %>
+<%= form.hidden_field :dateofjourney, value: @booking.dateofjourney %>
+<%= form.hidden_field :source, value: @booking.source %>
+<%= form.hidden_field :destination, value: @booking.destination %>
+<%= form.hidden_field :user_id,value: @booking.user.id %>
+<%= form.hidden_field :seats, value: @booking.seats %>
+<div class="field">
+  <% if (@booking.flight.firstclass.availability > @booking.seats) %>
+    <%= form.radio_button(:seatclass, "first") %>
+    <%= form.label :'First class' %>
+  <% end %>
+  <% if (@booking.seatclass == 'economy') %>
+  <% if (@booking.flight.business.availability > @booking.seats) %>
+    <%= form.radio_button(:seatclass, "business") %>
+    <%= form.label :'Business class' %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

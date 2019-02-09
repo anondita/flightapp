@@ -1,0 +1,29 @@
+
+
+<p>
+  <strong>Seat in a Row:</strong>
+  <%= @firstclass.seat %>
+</p>
+
+<p>
+  <strong>Number of Rows:</strong>
+  <%= @firstclass.row %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @firstclass.price %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @firstclass.total %>
+</p>
+
+<p>
+  <strong>Emergency in Row:</strong>
+  <%= @firstclass.emergency %>
+</p>
+
+<%= link_to 'Edit', edit_firstclass_path(@firstclass) %> |
+<%= link_to 'Back', firstclasses_path %>

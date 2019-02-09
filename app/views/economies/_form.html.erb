@@ -1,0 +1,38 @@
+<%= form_for @economy, url: flight_economies_path , local: true do |form| %>
+  <% if economy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(economy.errors.count, "error") %> prohibited this economy from being saved:</h2>
+
+      <ul>
+      <% economy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <%#= form.hidden_field :flight_id,value: @flight.id %>
+
+   <div class="field">
+    <%= form.label :'Seats in a Row' %>
+    <%= form.number_field :seat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Total Rows' %>
+    <%= form.number_field :row %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Base Price' %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Row with Emergency exit' %>
+    <%= form.number_field :emergency %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

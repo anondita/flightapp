@@ -1,0 +1,32 @@
+<p>
+  <strong>Seats in a row:</strong>
+  <%= @flight.firstclass.seat %>
+</p>
+
+<p>
+  <strong>Number of Rows:</strong>
+  <%= @flight.firstclass.row %>
+</p>
+
+<p>
+  <strong>Base Price:</strong>
+  <%= @flight.firstclass.price %>
+</p>
+
+<p>
+  <strong>Total Seats:</strong>
+  <%= @flight.firstclass.total %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @flight.firstclass.availability %>
+</p>
+
+<p>
+  <strong>Emergency Window in row:</strong>
+  <%= @flight.firstclass.emergency %>
+</p>
+
+<%= link_to 'seats', firstseat_path(@flight) %>
+

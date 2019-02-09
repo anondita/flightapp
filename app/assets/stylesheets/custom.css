@@ -1,0 +1,52 @@
+.seatavailable
+{
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	background-color: #dbdbdb;
+	color: black;
+	margin: 1px;
+}
+.seatunavailable
+{
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	background-color: #ff0000;
+	color: white;
+	margin: 0px 1px;
+}
+.seat
+{
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	color: black;
+	text-decoration: none;
+}
+.myseat
+{
+	background-color: green;
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+	margin: 1px;
+	color: white;
+}
+.classmap
+{
+	background-color: #f3f3f3;
+	margin: auto 10px;
+	padding: 10px 30px 10px 10px;
+	width: max-content;
+}
+.left
+{
+	float: left;
+	margin: auto;
+}
+.right
+{
+	float: right;
+	margin: auto;
+}

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seatclass: MyString
+  pnr: MyString
+  seatnumber: 1
+  seattype: MyString
+  price: 
+  flight: one
+  booking: one
+
+two:
+  seatclass: MyString
+  pnr: MyString
+  seatnumber: 1
+  seattype: MyString
+  price: 
+  flight: two
+  booking: two

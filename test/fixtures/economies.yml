@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seat: 1
+  row: 1
+  price: 1
+  total: 1
+  emergency: 1
+
+two:
+  seat: 1
+  row: 1
+  price: 1
+  total: 1
+  emergency: 1

@@ -1,0 +1,48 @@
+
+
+<h2>FLIGHT DETAILS</h2>
+<p>
+  <strong>Name:</strong>
+  <%= @flight.name %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @flight.source %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @flight.destination %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= dateformat(@flight.dateofflight) %>
+</p>
+
+<p>
+  <strong>Depart:</strong>
+  <%= timeformat(@flight.depart) %>
+</p>
+
+<p>
+  <strong>Arrive:</strong>
+  <%= timeformat(@flight.arrive) %>
+</p>
+<% if @flight.firstclass.nil? %>
+<%= link_to 'First Class Configuration',new_flight_firstclass_path(@flight) %> 
+<% end %>
+<br>
+<% if @flight.business.nil? %>
+<%= link_to 'Business Class Configuration',new_flight_business_path(@flight) %>
+<% end %>
+<br>
+<% if @flight.economy.nil? %>
+<%= link_to 'Economy Class Configuration',new_flight_economy_path(@flight) %>
+<% end %>
+<br><br>
+
+<%= link_to 'Seat Configuration', seat_path(@flight) %> |
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>

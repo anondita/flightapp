@@ -1,0 +1,22 @@
+<%= form_tag(flights_finder_path, method: "post") do %> 
+    
+    <div class="field">
+      <%= label_tag  :"date of flight" %>
+      <%= date_field_tag(:dateofflight, :order => [:year, :month, :day])  %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :source %>
+      <%= text_field_tag :source %>
+    </div>
+
+    <div class="field">
+      <%= label_tag :destination %>
+      <%= text_field_tag :destination %>
+    </div>
+
+    <div class="actions">
+    <%= submit_tag("Submit") %>
+    </div>
+    
+<% end %>

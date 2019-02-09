@@ -1,0 +1,43 @@
+<h2> Seat Configurations For <%= @flight.name %> </h2>
+
+<table>
+	<thead>
+	 	<tr>
+			<th><h2>First Class Configuration</h2></th>
+			<th></th>
+			<th></th>
+			<th><h2>Business Class Configuration</h2></th>
+			<th></th>
+			<th></th>
+			<th><h2>Economy Class Configuration</h2></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<% if (@flight.firstclass.nil?) %>
+				<% else %>
+					<%= render 'firstclasses/show' %>
+				<% end %>
+			</td>
+			<td></td>
+			<td></td>
+			<td>
+				<% if (@flight.business.nil?) %>
+				<% else %>
+					<%= render 'businesses/show' %>
+				<% end %>
+			</td>
+			<td></td>
+			<td></td>
+			<td>
+				<% if (@flight.economy.nil?) %>
+				<% else %>
+					<%= render 'economies/show' %>
+				<% end %>
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+<%= link_to 'Back', flight_path(params[:id]) %>

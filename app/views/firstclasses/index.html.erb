@@ -1,0 +1,35 @@
+
+
+<h1>Firstclasses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seat</th>
+      <th>Row</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Emergency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @firstclasses.each do |firstclass| %>
+      <tr>
+        <td><%= firstclass.seat %></td>
+        <td><%= firstclass.row %></td>
+        <td><%= firstclass.price %></td>
+        <td><%= firstclass.total %></td>
+        <td><%= firstclass.emergency %></td>
+        <td><%= link_to 'Show', firstclass %></td>
+        <td><%= link_to 'Edit', edit_firstclass_path(firstclass) %></td>
+        <td><%= link_to 'Destroy', firstclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Firstclass', new_flight_firstclass_path %>

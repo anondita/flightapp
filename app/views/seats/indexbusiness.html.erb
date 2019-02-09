@@ -1,0 +1,31 @@
+
+
+<h1>Seats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seatclass</th>
+      <th>Seatnumber</th>
+      <th>Seattype</th>
+      <th>Price</th>
+      <th>Flight</th>
+      <th>Available</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seats.each do |seat| %>
+      <tr>
+        <td><%= seat.seatclass %></td>
+        <td><%= seat.seatnumber %></td>
+        <td><%= seat.seattype %></td>
+        <td><%= seat.price %></td>
+        <td><%= seat.flight.name %></td>
+        <td><%= seat.available %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
