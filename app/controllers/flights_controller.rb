@@ -43,8 +43,8 @@ before_action :admin_check, only: [:show,:destroy,:create,:update,:destroy, :new
 
   def finderc
     @date = params[:dateofflight]
-    @source = params[:source]
-    @dest = params[:destination]
+    @source = params[:source].capitalize
+    @dest = params[:destination].capitalize
 
     if((@date === "") && (@source === "") && (@dest === ""))
       @flights = Flight.all

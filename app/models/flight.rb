@@ -12,18 +12,31 @@ class Flight < ApplicationRecord
 	validates :dateofflight, presence: true
 	validate :date_cannot_be_in_the_past
     validate :end_must_be_after_start
+    validate :source_dest
+    before_save :capitalizestring
 
-  def end_must_be_after_start
-  if arrive <= depart
-    errors.add(:arrive, "cannot be before departure")
-  end
-end
-
- def date_cannot_be_in_the_past
-   if (dateofflight.present? && dateofflight.past?)
-      errors.add(:dateofflight, "can't be in the past")
+    def source_dest
+    	if(source.downcase === destination.downcase)
+    		errors.add(:destination, "cannot be same as source")
+    	end
     end
-  end 
+
+    def capitalizestring
+    	self.source = source.capitalize
+    	self.destination = destination.capitalize
+    end
+
+    def end_must_be_after_start
+	  if arrive <= depart
+	    errors.add(:arrive, "cannot be before departure")
+	  end
+    end
+
+	def date_cannot_be_in_the_past
+	   if (dateofflight.present? && dateofflight.past?)
+	      errors.add(:dateofflight, "can't be in the past")
+	    end
+	 end 
 
 	def destroybooking
 		if(self.bookings.exists?)
