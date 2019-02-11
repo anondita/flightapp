@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -9,8 +8,22 @@
   <strong>Type:</strong>
   <%= @airplane.typeofplane %>
 </p>
+<br>
+<table>
+ <thead>
+   <tr>
+     <th><strong>FIRST CLASS</strong></th>
+     <th></th>
+     <th><strong>BUSINESS CLASS</strong></th>
+     <th></th>
+     <th><strong>ECONOMY CLASS</strong></th>
+   </tr>
+ </thead>
 
-<p><strong>FIRST CLASS</strong></p>
+
+<tbody>
+  <tr>
+    <td>
 
 <p>
   <strong>seat in a row:</strong>
@@ -31,8 +44,9 @@
   <strong>number of rows:</strong>
   <%= @airplane.firstrow %>
 </p>
-
-<p><strong>BUSINESS CLASS</strong></p>
+</td>
+<td></td>
+<td>
 
 <p>
   <strong>seat in a row:</strong>
@@ -53,8 +67,9 @@
   <strong>number of rows:</strong>
   <%= @airplane.busrow %>
 </p>
-
-<p><strong>ECONOMY CLASS</strong></p>
+</td>
+<td></td>
+<td>
 
 <p>
   <strong>seat in a row:</strong>
@@ -75,6 +90,10 @@
   <strong>number of rows:</strong>
   <%= @airplane.ecorow %>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
 
 <%= link_to 'Edit', edit_airplane_path(@airplane) %> |
 <%= link_to 'Back', airplanes_path %>
