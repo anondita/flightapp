@@ -1,4 +1,5 @@
 class FirstclassesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_firstclass, only: [:show, :edit, :update, :destroy]
 
   # GET /firstclasses

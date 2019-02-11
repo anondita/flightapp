@@ -1,4 +1,5 @@
 class EconomiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_economy, only: [:show, :edit, :update, :destroy]
 
   # GET /economies

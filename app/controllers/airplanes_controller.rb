@@ -1,5 +1,7 @@
 class AirplanesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_airplane, only: [:show, :edit, :update, :destroy]
+  before_action :admin_check, only: [:show, :edit, :update, :create, :destroy, :new]
 
   # GET /airplanes
   # GET /airplanes.json

@@ -1,5 +1,7 @@
 class FlightsController < ApplicationController
+  before_action :authenticate_user!, except: [:home]
 before_action :set_flight, only: [:show, :edit, :update, :destroy]
+before_action :admin_check, only: [:show,:destroy,:create,:update,:destroy, :new]
   # GET /flights
   # GET /flights.json
   def index
