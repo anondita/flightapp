@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   before_create :generate
   before_destroy :restore_availability
-  validate :check_availability
+  validate :check_availability, :on => :create
 
   belongs_to :user
   belongs_to :flight
