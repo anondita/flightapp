@@ -7,18 +7,11 @@
     <tr>
       <th>Name</th>
       <th>Type</th>
-      <th>Firstseat</th>
-      <th>Firstemer</th>
-      <th>Firstprice</th>
-      <th>Firstrow</th>
-      <th>Busseat</th>
-      <th>Busemer</th>
-      <th>Busprice</th>
-      <th>Busrow</th>
-      <th>Ecoseat</th>
-      <th>Ecoemer</th>
-      <th>Ecoprice</th>
-      <th>Ecorow</th>
+      <th>First Seats</th>
+      <th></th>
+      <th>Business Seats</th>
+      <th></th>
+      <th>Economy Seats</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -28,18 +21,11 @@
       <tr>
         <td><%= airplane.name %></td>
         <td><%= airplane.typeofplane %></td>
-        <td><%= airplane.firstseat %></td>
-        <td><%= airplane.firstemer %></td>
-        <td><%= airplane.firstprice %></td>
-        <td><%= airplane.firstrow %></td>
-        <td><%= airplane.busseat %></td>
-        <td><%= airplane.busemer %></td>
-        <td><%= airplane.busprice %></td>
-        <td><%= airplane.busrow %></td>
-        <td><%= airplane.ecoseat %></td>
-        <td><%= airplane.ecoemer %></td>
-        <td><%= airplane.ecoprice %></td>
-        <td><%= airplane.ecorow %></td>
+        <td><center><%= (airplane.firstseat * airplane.firstrow) %></center></td>
+        <td></td>
+        <td><center><%= (airplane.busseat * airplane.busrow) %></center></td>
+        <td></td>
+        <td><center><%= (airplane.ecoseat * airplane.ecorow) %></center></td>
         <td><%= link_to 'Show', airplane %></td>
         <td><%= link_to 'Edit', edit_airplane_path(airplane) %></td>
         <td><%= link_to 'Create Flight', airplane_flight_path(airplane) %></td>
