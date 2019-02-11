@@ -8,19 +8,19 @@ before_action :admin_check, only: [:show,:destroy,:create,:update,:destroy, :new
     @flights = Flight.all
   end
 
-  def seatmap
-    @pnr = params[:pnr]
-    @bookings = Booking.where(:pnr => @pnr)
-    @booking = @bookings.last
+  def search_pnr
+    @pnr= params[:pnr]
+    @booking = Booking.where(:pnr => @pnr).last 
     if (@booking.nil?)
-          if (params[:booking_id] == nil)
-            
             redirect_to root_path, alert: "Enter a valid pnr number"
             return
           else
-              @booking = Booking.find(params[:booking_id])
+              redirect_to seatmap_path(@booking)
           end
-    end
+  end
+
+  def seatmap
+    @booking = Booking.find(params[:booking_id])
     @booking.seatofbookings.destroy_all
     puts @booking
     puts @booking.flight.id

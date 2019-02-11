@@ -13,7 +13,7 @@
 		<% else %>
 		<%= link_to 'My Bookings', bookings_index_path(current_user) %>
 		<% end %>
-		<%= form_tag(seatmap_path, method: "get") do %>
+		<%= form_tag(search_pnr_path, method: "get") do %>
 		<h2> SELECT SEAT </h2>	
 		  <div class="field">
 		    <%= label_tag :'PNR Number' %>

@@ -16,18 +16,17 @@
      <% puts !@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists? %>
       	<div class="seatavailable">
           <% if (@booking.seatofbookings.size < @booking.seats) %>
-          <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber,:booking_id => @booking.id),method: "post",class: "seat" %>
+          <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber), method: "post",class: "seat" , onclick: 'this.classList.toggle("myseat")'%>
           <% else %>
           <%= seat.seatnumber %>
           <% end %>
-          
         </div>
 
       <% elsif(@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists?) %>
       <% puts !@booking.seatofbookings.where(:seatnumber => seat.seatnumber).exists? %>
         <div class="myseat">
             <% if (@booking.seatofbookings.size < @booking.seats) %>
-            <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber,:booking_id => @booking.id),method: "post", class: "seat" %>
+            <%= link_to seat.seatnumber , seatmap_path(:seatnumber => seat.seatnumber),method: "post", class: "seat", onclick: 'this.classList.toggle("myseat")' %>
             <% else %>
             <%= seat.seatnumber %>
             <% end %>

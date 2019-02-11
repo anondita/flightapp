@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   put '/users/:user_id/flights/:flight_id/bookings/:id', to: 'bookings#update'
   delete '/users/:user_id/flights/:flight_id/bookings/:id', to: 'bookings#destroy'
 
-  get '/seatmap', to: 'flights#seatmap'
-  post '/seatmap', to: 'bookings#seatmap'
+  get '/search_pnr', to: 'flights#search_pnr', as: 'search_pnr'
+  get 'bookings/:booking_id/seatmap', to: 'flights#seatmap', as: 'seatmap'
+  post '/bookings/:booking_id/seatmap', to: 'bookings#seatmap'
   post '/seatconfirm', to: 'bookings#seatconfirm' , as: 'seatconfirm'
   root to: 'flights#home'
   devise_for :users

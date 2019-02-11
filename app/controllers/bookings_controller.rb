@@ -54,10 +54,10 @@ class BookingsController < ApplicationController
     end
     if (@booking.seatofbookings.size < @booking.seats)
         if (!@booking.seatofbookings.where(:seatnumber => params[:seatnumber]).exists?)
-        @booking.seatofbookings.create(:seatnumber => params[:seatnumber],:booking_id => @booking.id)
+          @booking.seatofbookings.create(:seatnumber => params[:seatnumber],:booking_id => @booking.id)
         else
-        @s = @booking.seatofbookings.where(:seatnumber => params[:seatnumber])
-        @s.destroy_all
+          @s = @booking.seatofbookings.where(:seatnumber => params[:seatnumber])
+          @s.destroy_all
         end
         if (@price.nil?)
     @price =0
@@ -66,7 +66,7 @@ class BookingsController < ApplicationController
         @booking.seatofbookings.each do |s|
           @seat= Seat.where(:flight_id => @booking.flight.id, :seatclass => @booking.seatclass, :seatnumber => s.seatnumber)
           if ((Seat.where(:flight_id => @booking.flight.id, :seatclass => @booking.seatclass, :available => true).size - @x) > (Seat.where(:flight_id => @booking.flight.id, :seatclass => @booking.seatclass, :available => false).size + @x))
-          @price = @price + @seat.first.price
+            @price = @price + @seat.first.price
           elsif((Seat.where(:flight_id => @booking.flight.id, :seatclass => @booking.seatclass, :available => true).size - @x) <= (Seat.where(:flight_id => @booking.flight.id, :seatclass => @booking.seatclass, :available => false).size + @x))
             if (@seat.first.seattype === 'normal')
               @price = @price + @seat.first.price
@@ -76,7 +76,8 @@ class BookingsController < ApplicationController
           end
           @x=@x+1
         end
-    render '_seatmap'
+    #render '_seatmap'
+    #render :seatmap
     elsif (@booking.seatofbookings.size >= @booking.seats)
       flash[:danger]= "Seats are exceeding Booked seats"
     end
